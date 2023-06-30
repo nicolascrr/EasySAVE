@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="ProjetG2AdminDev.Views.MainMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ProjetG2AdminDev"
+             xmlns:views="clr-namespace:ProjetG2AdminDev.Views"
+             xmlns:viewModels="clr-namespace:ProjetG2AdminDev.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="1200" Width="1200" Height="700"
+             DataContext="{StaticResource MainViewModel}"
+             >
+    <Grid Background="{DynamicResource Background}" Width="1200" Height="700">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="599*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Left" Height="54" TextWrapping="Wrap" VerticalAlignment="Top" Width="217" FontSize="48" Margin="10,10,0,0" FontFamily="Bahnschrift"><Run Language="fr-fr" Text="EasySave"/><LineBreak/><Run Language="fr-fr"/></TextBlock>
+        <views:TabBackupJobs Margin="0,150,0,150" Height="400" Grid.ColumnSpan="2" Grid.Column="0"/>
+        <StackPanel Orientation="Horizontal" Margin="0,108,0,555" Grid.ColumnSpan="2" Grid.Column="0">
+            <Button x:Name="AddButton" IsEnabled="{Binding IsAddButtonEnabled}" Margin="7,0,7,0" Width="35" Command="{Binding AddJobCommand}" Background="Transparent" BorderBrush="Transparent">
+                <Image Source="../Images/plus.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+            </Button>
+            <Button x:Name="DeleteAllButton"  Margin="7,0,7,0" Command="{Binding DeleteAllJobCommand}" Background="Transparent" BorderBrush="Transparent">
+                <Image Source="../Images/deleteall.png" Height="37" Width="37" RenderOptions.BitmapScalingMode="HighQuality"/>
+            </Button>
+            <Button x:Name="StartAllButton" Margin="7,0,7,0" Command="{Binding StartAllCommand}" Background="Transparent" BorderBrush="Transparent">
+                <Image Source="../Images/startall.png" Height="37" Width="37" RenderOptions.BitmapScalingMode="HighQuality"/>
+            </Button>
+            <TextBox x:Name="SearchBox" Width="202" Height="27"  Margin="7,0,7,0" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
+            <Image Source="../Images/search.png" RenderOptions.BitmapScalingMode="HighQuality" Height="26" Width="26"/>
+            <TextBlock Height="16">Exportation de l'historique :</TextBlock>
+            <ComboBox x:Name="ExportationMode" Width="100"  Margin="7,0, 7,0" SelectedItem="{Binding Format}" ItemsSource="{Binding Formats}" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Margin="2,572,714,91" Orientation="Horizontal" >
+            <Button x:Name="PreviousPage" Content="&lt;" Margin="7,0, 7,0" Width="35"/>
+            <Button x:Name="NextPage" Content=">" Margin="7,0, 7,0"  Width="35" />
+            <TextBlock Margin="7,0, 7,0">1 2 3</TextBlock>
+        </StackPanel>
+        <Button Grid.Column="0" x:Name="SettingsButton" HorizontalAlignment="Left" Margin="976,10,0,0" VerticalAlignment="Top" Height="60" Width="182" Click="Button_Click_Settings" FontSize="24" Background="Transparent" BorderBrush="Transparent">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="../Images/settings.png" Height="40" Width="34"/>
+                <TextBlock Text="Settings" Height="38" Margin="10"/>
+            </StackPanel>
+        </Button>
+    </Grid>
+</UserControl>

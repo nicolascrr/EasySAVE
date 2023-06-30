@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\add.png" />
+    <None Remove="Images\plus.png" />
+    <Resource Include="Images\plus.png" />
+    <None Remove="Images\deleteall.png" />
+    <Resource Include="Images\deleteall.png" />
+    <None Remove="Images\settings.png" />
+    <Resource Include="Images\settings.png" />
+    <None Remove="Images\startall.png" />
+    <Resource Include="Images\startall.png" />
+    <None Remove="Images\start.png" />
+    <Resource Include="Images\start.png" />
+    <None Remove="Images\search.png" />
+    <Resource Include="Images\search.png" />
+    <None Remove="Images\stop.png" />
+    <Resource Include="Images\stop.png" />
+    <None Remove="Images\pause.png" />
+    <Resource Include="Images\pause.png" />
+    <None Remove="Images\delete_.png" />
+    <Resource Include="Images\delete_.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Trans.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Trans.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Trans.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Trans.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,25 @@
+﻿<Application x:Class="EasySaveV2.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml"
+             xmlns:vm="clr-namespace:ProjetG2AdminDev.ViewModels"
+             xmlns:m="clr-namespace:ProjetG2AdminDev.Models">
+    <Application.Resources>
+        <ResourceDictionary x:Key="Dictionary">
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Properties/ColorsLight.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <m:Model x:Key="AppModel"/>
+            <vm:MainMenuViewModel x:Key="MainViewModel">
+                <vm:MainMenuViewModel.Model>
+                    <StaticResourceExtension ResourceKey="AppModel" />
+                </vm:MainMenuViewModel.Model>
+            </vm:MainMenuViewModel>
+            <vm:SettingsMenuViewModel x:Key="SettingsViewModel">
+                <vm:SettingsMenuViewModel.Model>
+                    <StaticResourceExtension ResourceKey="AppModel" />
+                </vm:SettingsMenuViewModel.Model>
+            </vm:SettingsMenuViewModel>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
